@@ -8,6 +8,7 @@ function dd()
     $args = func_get_args();
     var_dump($args);
     die;
+    
 }
 
 const BASE_URL = "http://localhost/duan1/";
