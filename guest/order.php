@@ -93,6 +93,7 @@ function order_detail($order){
           $price = $listorder['quanlity']*$listorder['product_price'];
           $tong += $price;
           $hinh = $img_path . $listorder['image'];
+         
           $size = $listorder['size'];
           $color = $listorder['color'];
           echo'  
