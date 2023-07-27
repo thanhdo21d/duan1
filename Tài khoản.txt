@@ -1,6 +1,0 @@
--Tài khoản user:
-Tên tài khoản: user
-pass: user
--Tài khoản admin:
-Tên tài khoản: admin
-pass: admin
