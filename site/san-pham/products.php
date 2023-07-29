@@ -130,6 +130,7 @@
     <p class=" mt-5 mb-6">
         Đăng ký đặt hàng Royal để nhận ưu đãi hấp dẫn, đăng ký nhận nhiều thông tin giảm giá hấp dẫn
     </p>
+    
     <div class=" font-bold my-5">
         <button class="border-2 text-black border-black px-3 py-3">
             Tìm hiểu thêm
