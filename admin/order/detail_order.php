@@ -8,8 +8,6 @@
                     <div class="">      
                     <hr>
                   
-                     
-
                             <?php 
                             $tong = 0;
                             foreach($listorder_detail as $listorder){
@@ -23,7 +21,7 @@
                                 
                             echo '
                             <div class="flex my-10 grid grid-cols-4">
-                        <div class="bg-[#F3F3F5]"><img srcset="'.$hinh.' 4x" alt=""></div>
+                        <div class="bg-[#F3F3F5]"><img style="border-radius:5px" srcset="'.$hinh.' 4x" alt=""></div>
 
                         <div class="mx-10 flex justify-between items-center col-span-3">
                             <div class="">
