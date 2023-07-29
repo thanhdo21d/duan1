@@ -2,11 +2,19 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
+<<<<<<< HEAD
+        <div class="swiper-slide"><video style="width:100%" src="../upload/111.mp4" autoplay loop muted></video></div>
+        <div class="swiper-slide"><video style="width:100%" src="../upload/VD1.mp4" autoplay loop muted></video></div>
+
+        <div class="swiper-slide"><video style="width:100%" src="../upload/222.mp4" autoplay loop muted></video></div>
+        <div class="swiper-slide"><video style="width:100%" src="../upload/333.mp4" autoplay loop muted></video></div>
+=======
         <div class="swiper-slide"><video src="../upload/111.mp4" autoplay loop muted></video></div>
         <div class="swiper-slide"><video src="../upload/VD1.mp4" autoplay loop muted></video></div>
 
         <div class="swiper-slide"><video src="../upload/222.mp4" autoplay loop muted></video></div>
         <div class="swiper-slide"><video src="../upload/333.mp4" autoplay loop muted></video></div>
+>>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -60,7 +68,11 @@
         $linkdm = "index.php?act=san_pham&iddm=" . $id;
         echo '
                         <div class="">
+<<<<<<< HEAD
+                        <a href="' . $linkdm . '"><img style="width:282px ; height:300px;border-radius:5px" src="' . $image . '"></a>
+=======
                         <a href="' . $linkdm . '"><img style="width:282px ; height:355px" src="' . $image . '"></a>
+>>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
                         <h3 class="text-center my-4 text-xl ">' . $categories_name . '</h3></div>
                     ';
     }
@@ -168,7 +180,11 @@
 </div>
 <div class="max-w-6xl mx-auto">
     <div class="flex">
+<<<<<<< HEAD
+        <img style="width:436px; height:270px" srcset="../upload/showip.jpg 4x" alt="">
+=======
         <img style="width:436px; height:270px" srcset="../upload/63.png 4x" alt="">
+>>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
         <div class="ml-10">
             <h3 class="font-bold text-xl">MEN'S SPRING-SUMMER 2023 SHOW</h3>
             <div class="my-4">
@@ -185,7 +201,11 @@
 
 
     <div class="flex">
+<<<<<<< HEAD
+        <img style="width:480px; height:270px" srcset="../upload/samsugss.webp 4x" alt="">
+=======
         <img style="width:480px; height:270px" srcset="../upload/ao1.webp 4x" alt="">
+>>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
         <div class="ml-10">
             <h3 class="font-bold text-xl">MEN'S FALL-WINTER 2022 SHOW IN BANGKOK</h3>
             <div class="my-4">
