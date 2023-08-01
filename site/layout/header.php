@@ -579,13 +579,6 @@ body {
 
 
 }
-<<<<<<< HEAD
-.S:hover,.M:hover,.L:hover,.XL:hover{
-    color:red;
-}
-
-=======
->>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
 
 
 
@@ -834,9 +827,9 @@ body {
 
         </div>
         <div class="list-none hidden flex justify-center space-x-8 my-10 " id="tk">
-            <form action="index.php?act=san_pham" method="post">
-                <input type="text" placeholder="Tìm kiếm sản phẩm" name="kw">
-                <button type="submit" name="timkiem">Tìm Kiếm</button>
+            <form class="w-[300px] h-[35px] border border-gray-400  rounded-md" action="index.php?act=san_pham" method="post">
+                <input type="text" class="pl-2" placeholder="Tìm kiếm sản phẩm" name="kw">
+                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit" name="timkiem">Tìm Kiếm</button>
 
             </form>
         </div>
@@ -855,8 +848,4 @@ body {
         button.addEventListener("click", function() {
             menu.classList.toggle("hidden");
         });
-<<<<<<< HEAD
         </script>
-=======
-        </script>
->>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5

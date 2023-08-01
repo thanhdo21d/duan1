@@ -68,7 +68,7 @@ if (!is_array($pro)) {
                         <input type="radio" name="size" value="256g" id="L">
                         <label for="L" class="L rounded-lg">256g</label>
                         <input type="radio" name="size" value="512g" id="XL">
-                        <label for="XL" class="XL rounded-lg">512</label>
+                        <label for="XL" class="XL rounded-lg">512g</label>
                     </div>
 
                 </div>
@@ -90,7 +90,7 @@ if (!is_array($pro)) {
                         or symbol of the
                         House</p>
                 </div>
-                <p class="text-center font-bold mt-10"><?= $pr_price ?> VNĐ</p>
+                <p class="text-center font-bold mt-10"><?= number_format($pr_price, 0, ',', '.') ?> VNĐ</p>
 
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <input type="hidden" name="product_name" value="<?= $pr_name ?>">
@@ -182,9 +182,9 @@ if (!is_array($pro)) {
             <img src="' . $image2 . '" alt="" class="bg-[#F3F3F3] mx-auto w-[184px] h-[184px]">
             <h3 class="text-gray-600 my-4 text-center">' . $product_name . '</h3>
             <div class="flex mx-auto text-[14px] text-center">
-                <span class="ml-8">' . $product_price . ' VNĐ</span>
+                <span class="ml-8 mt-2">'. number_format($product_price, 0, ',', '.') . ' VNĐ</span>
                 
-                <button class="ml-4 hover:border-2 border-gray-200">+ Add To Cart </button>
+                <button class="ml-4 hover:border-2 border-gray-200 bg-green-500 rounded-md p-2 text-white"> Add To Cart </button>
             </div>
             </div>
             </a>

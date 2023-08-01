@@ -78,7 +78,7 @@
                         </div>
                         <h3 class="text-gray-600 my-2"> <?= $product_name  ?></h3>
                         <div class="flex">
-                            <span><?= $product_price ?> VNĐ</span>
+                            <span style="vertical-align: -webkit-baseline-middle"><?= $product_price ?> VNĐ</span>
                 </a>
 
                 <form action="index.php?act=addtocart" method="post">
@@ -89,9 +89,7 @@
                         <input type="hidden" name="product_price" value="<?= $product_price ?>">
                         <form action="index.php?act=addtocart" method="post">
                             <input id="addtocart" type="submit" name="addtocart" value="Add to Cart"
-                                class="flex gap-4 mx-4 hover:border-2 border-gray-200">
-
-
+                                class="flex gap-4 p-1.5 bg-green-500 text-white rounded-md mx-4 hover:border-2 border-gray-200">
                             </input>
 
 
@@ -130,7 +128,6 @@
     <p class=" mt-5 mb-6">
         Đăng ký đặt hàng Royal để nhận ưu đãi hấp dẫn, đăng ký nhận nhiều thông tin giảm giá hấp dẫn
     </p>
-    
     <div class=" font-bold my-5">
         <button class="border-2 text-black border-black px-3 py-3">
             Tìm hiểu thêm

@@ -49,7 +49,7 @@
         </div>
         <div class="col-span-4 ml-10 ">
           
-            <input type="text" placeholder=" Search Dior , Gucci , Balenciaga ...." class="px-10 py-2 border-2 w-full my-6" svg="">
+            <input type="text" placeholder=" Search Iphone , Samsung , oppo ...." class="px-10 py-2 border-2 w-full my-6" svg="">
           <div class="border-2 border-gray-200 px-10 py-4 ">
         <?php 
              $id = $_SESSION['id_user'];
@@ -58,8 +58,8 @@
                    order_detail($order);
                 }
                 else{
-                    echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Bạn chưa mua gì cả:<
-                    <a class="text-center text-[32px] border border-slate-300 ..." href="index.php?act=san_pham" >Quay lại trang sản phẩm</a>
+                    echo '<h1 class=" text-center text-[30px] border border-slate-300 ...">Bạn chưa mua gì cả : 
+                    <a class="text-center bg-green-500 rounded-md p-1 text-white font-bold text-[32px] border border-slate-300 ..." href="index.php?act=san_pham " >Quay lại trang sản phẩm</a>
                     </h1>';
                 }
     ?>

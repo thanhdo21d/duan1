@@ -88,7 +88,7 @@ if (isset($_GET['act'])) {
       if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
       if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
         if ((!isset($_POST['colors'])) || (!isset($_POST['size']))) {
-          $_SESSION['thongbao'] = "Vui lòng chọn đầy đủ màu và bộ nhớ";
+          $_SESSION['thongbao'] = "Vui lòng chọn đầy đủ màu và dung lượng";
           header('location: index.php?act=productdetail&id=' . $_POST['id'] . '');
           break;
         }

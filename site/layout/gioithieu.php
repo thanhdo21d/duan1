@@ -27,7 +27,7 @@
             </p>
 
             <hr class="my-10">
-            <div class=" mx-20">
+            <div class=" mx-5">
                 <div class="text-center space-y-4">
                     <h1 class="text-center   text-3xl " style="font-family: 'Courier New', Courier, monospace">TRẢI
                         NGHIỆM
@@ -36,15 +36,15 @@
                 </div>
                 <div class="grid grid-cols-3 gap-10 my-10">
                     <div class="">
-                        <a href=""><img class="shadow-2xl shadow-cyan-500/50" src="../upload/iPhone14.jpg" alt=""></a>s
-                        <h3 class="text-center my-10">KHÔNG GIAN THỜI TRANG VÀ HIỆN ĐẠI</h3>
+                        <a href=""><img class="shadow-2xl h-[200px] shadow-cyan-500/50" src="../upload/iPhone14.jpg" alt=""></a>
+                        <h3 class="text-left my-10">KHÔNG GIAN THỜI TRANG VÀ HIỆN ĐẠI</h3>
                     </div>
                     <div class="">
-                        <a href=""><img class="shadow-2xl shadow-cyan-500/50" src="../upload/iphone.jpg" alt=""></a>
+                        <a href=""><img class="shadow-2xl h-[200px] shadow-cyan-500/50" src="../upload/iphone.jpg" alt=""></a>
                         <h3 class="text-center my-10">MUA SẮM THOẢI MÁI VÀ TIỆN LỢI</h3>
                     </div>
                     <div class="">
-                        <a href=""><img class="shadow-2xl shadow-cyan-500/50" src="../upload/samsung.jpg" alt=""></a>
+                        <a href=""><img class="shadow-2xl h-[200px] w-[92%] shadow-cyan-500/50" src="../upload/samsung.jpg" alt=""></a>
                         <h3 class="text-center my-10">ĐÓN TIẾP ÂN CẦN, TƯ VẤN CHUYÊN NGHIỆP</h3>
                     </div>
                     <div class=""></div>

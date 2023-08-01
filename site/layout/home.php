@@ -2,11 +2,11 @@
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide"><video src="../upload/111.mp4" autoplay loop muted></video></div>
-        <div class="swiper-slide"><video src="../upload/VD1.mp4" autoplay loop muted></video></div>
+        <div class="swiper-slide"><video style="width: 100%;" src="../upload/111.mp4" autoplay loop muted></video></div>
+        <div class="swiper-slide"><video style="width: 100%;" src="../upload/VD1.mp4" autoplay loop muted></video></div>
 
-        <div class="swiper-slide"><video src="../upload/222.mp4" autoplay loop muted></video></div>
-        <div class="swiper-slide"><video src="../upload/333.mp4" autoplay loop muted></video></div>
+        <div class="swiper-slide"><video style="width: 100%;" src="../upload/222.mp4" autoplay loop muted></video></div>
+        <div class="swiper-slide"><video style="width: 100%;" src="../upload/333.mp4" autoplay loop muted></video></div>
     </div>
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
@@ -92,9 +92,9 @@
             style="font-family: 'Times New Roman', Times, serif;">Giới hạn</span>
     </div>
     <div class="flex ">
-        <form action="index.php?act=san_pham" method="post">
-            <input type="text" placeholder="Tìm kiếm sản phẩm" name="kw">
-            <button type="submit" name="timkiem" class="">
+        <form class="border border-gray-500 p-2 w-[225px] rounded-md relative"  action="index.php?act=san_pham" method="post">
+            <input type="text" class="pl-2 border-0" placeholder="Tìm kiếm sản phẩm" name="kw">
+            <button type="submit" name="timkiem" class="absolute right-[10px]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray"
                     class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -126,8 +126,9 @@
                             <a href="" class="text-xl my-4 font-bold">' . $product_name . '</a>
                         </h3>
                 <div class="text-xl my-2">
-                        <span class="text-violet-900 font-bold">' . $product_price . ' VNĐ</span>
-                </div>
+  <span class="text-violet-900 font-bold">' . number_format($product_price, 0, ',', '.') . ' VNĐ</span>
+</div>
+
                 <button class="border-2 border-violet-900 px-4 py-3 my-4 text-violet-900 font-bold group-hover:bg-violet-900 group-hover:text-white transition delay-300 duration-300 ease-in-out">
             <form action="index.php?act=addtocart" method="post">
                 <input type="hidden" name="id" value="' . $id . '">
@@ -168,34 +169,28 @@
 </div>
 <div class="max-w-6xl mx-auto">
     <div class="flex">
-        <img style="width:436px; height:270px" srcset="../upload/63.png 4x" alt="">
+        <img style="width:436px; height:270px" srcset="../upload/ip15.jpg 4x" alt="">
         <div class="ml-10">
-            <h3 class="font-bold text-xl">MEN'S SPRING-SUMMER 2023 SHOW</h3>
+            <h3 class="font-bold text-xl">Điện thoại iPhone 13 Pro Max 128GB</h3>
             <div class="my-4">
-                <span class="inline-block bg-[#142850]  px-2 py-1 rounded-full text-white">2020</span>
+                <span class="inline-block bg-[#142850]  px-2 py-1 rounded-full text-white">2022</span>
                 <span class="text-[#8695A4] text-xl ml-4">Dashboard</span>
             </div>
-            <p class=" hover:underline">Under the premise that toys are tools for the
-                imagination, the collection
-                reflects the transition from childlike naïveté to grown-up refinement. Elevating childhood
-                symbols through the Maison’s savoir-faire, </p>
+            <p class=" hover:underline">Điện thoại iPhone 13 Pro Max 128 GB - siêu phẩm được mong chờ nhất ở nửa cuối năm 2021 đến từ Apple. Máy có thiết kế không mấy đột phá khi so với người tiền nhiệm, bên trong đây vẫn là một sản phẩm có màn hình siêu đẹp, tần số quét được nâng cấp lên 120 Hz mượt mà, cảm biến camera có kích thước lớn hơn, cùng hiệu năng mạnh mẽ với sức mạnh đến từ Apple A15 Bionic, sẵn sàng cùng bạn chinh phục mọi thử thách. </p>
         </div>
     </div>
     <hr class="my-10 bg-[#E0E0E0]">
 
 
     <div class="flex">
-        <img style="width:480px; height:270px" srcset="../upload/ao1.webp 4x" alt="">
+        <img style="width:436px; height:270px" srcset="../upload/iphone.jpg 4x" alt="">
         <div class="ml-10">
-            <h3 class="font-bold text-xl">MEN'S FALL-WINTER 2022 SHOW IN BANGKOK</h3>
+            <h3 class="font-bold text-xl">Điện thoại iPhone 14 256GB</h3>
             <div class="my-4">
-                <span class="inline-block bg-[#142850]  px-2 py-1 rounded-full text-white">2018</span>
+                <span class="inline-block bg-[#142850]  px-2 py-1 rounded-full text-white">2023</span>
                 <span class="text-[#8695A4]  ml-4">Illustration</span>
             </div>
-            <p class=" hover:underline">Under the premise that toys are tools for the
-                imagination, the collection
-                reflects the transition from childlike naïveté to grown-up refinement. Elevating childhood
-                symbols through the Maison’s savoir-faire,</p>
+            <p class=" hover:underline">Mới đây thì tại sự kiện ra mắt sản phẩm mới thường niên đến từ nhà Apple thì chiếc điện thoại iPhone 14 256GB cũng đã chính thức lộ diện, thiết bị được nâng cấp toàn diện từ camera cho đến hiệu năng và hầu hết là những thông số hàng đầu trong giới smartphone. ,</p>
         </div>
     </div>
     <hr class="my-10 bg-[#E0E0E0]">
