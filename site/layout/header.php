@@ -579,13 +579,10 @@ body {
 
 
 }
-<<<<<<< HEAD
 .S:hover,.M:hover,.L:hover,.XL:hover{
     color:red;
 }
 
-=======
->>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
 
 
 
@@ -855,8 +852,4 @@ body {
         button.addEventListener("click", function() {
             menu.classList.toggle("hidden");
         });
-<<<<<<< HEAD
         </script>
-=======
-        </script>
->>>>>>> 0003f3fcf2036fb3f25df771f130ab9ec4ddf5f5
