@@ -51,7 +51,9 @@
                 <h3 class="my-4">Viết bình luận bạn tại đây</h3>
                 <textarea class="border-2 border-black w-full" name="comment" id="comment" cols="30" rows="10" placeholder="Viết bình luận của bạn tại đây ..."></textarea>
             </div>
+ 
 
+            
             <?php
              $id = $_SESSION['id_user'];
 
