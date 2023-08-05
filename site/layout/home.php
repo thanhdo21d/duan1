@@ -60,8 +60,8 @@
         $linkdm = "index.php?act=san_pham&iddm=" . $id;
         echo '
                         <div class="">
-                        <a href="' . $linkdm . '"><img style="width:282px ; height:355px" src="' . $image . '"></a>
-                        <h3 class="text-center my-4 text-xl ">' . $categories_name . '</h3></div>
+                        <a href="' . $linkdm . '"><img style="width:282px ; height:300px" src="' . $image . '"></a>
+                        <h3 class="text-center my-5 text-xl ">' . $categories_name . '</h3></div>
                     ';
     }
     ?>
@@ -80,7 +80,7 @@
 <img src="../upload/ip15.jpg" alt="" class=" rounded-lg mx-auto w-full">
 <hr class="my-10 w-4/5 mx-auto">
 <div class="max-w-5xl mx-auto flex justify-between items-center">
-    <div class="flex rounded-2xl font-black bg-[#EDF7FA] py-4 px-1"
+    <div class="flex rounded-2xl font-black bg-[#EDF7FA] py-4 px-2 "
         style="font-family: 'Courier New', Courier, monospace;">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black"
             class="w-6 h-6">

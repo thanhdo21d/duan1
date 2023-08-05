@@ -4,7 +4,7 @@ require_once "pdo.php";
 // Thêm hàng hóa
 function them_san_pham($product_name, $product_price, $product_price_sale, $description, $image, $image2, $image3, $origin, $id_categories)
 {
-
+    
     $sql = "INSERT INTO `product`(`product_name`, `product_price`, `product_price_sale`, `description`, `image`, `image2`, `image3`, `origin`, `id_categories`) VALUES ('$product_name','$product_price','$product_price_sale','$description','$image','$image2','$image3','$origin','$id_categories')";
     pdo_execute($sql);
 }

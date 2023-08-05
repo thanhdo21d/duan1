@@ -38,7 +38,7 @@ if (isset($_SESSION['cart']) && ($_SESSION['cart'] != [])) {
                             <td class=" px-11 border border-slate-300 ...">' . $product[3] . '</td>
                             <td class=" px-11 border border-slate-300 ..."> 
                             <input class="w-9 h-12"  type="hidden" name="product_id[]" value="' . $product[0] . '">
-                            <input class="w-9 h-12"  type="number" name="quantity[]" value="' . $product[4] . '">
+                            <input class="w-9 h-12"  type="number" name="quantity[]" value="' . $product[4] . '>
                             <td class=" px-11 border border-slate-300 ...">' . $product[5] . ',' . $product[6] . '</td>
                             <td class=" px-11 border border-slate-300 ...">' . $ttien . '</td>
                             <td style="text-align:center"><a href="index.php?act=delcart&idcart=' . $i . '">Xóa</a></td>
@@ -63,12 +63,12 @@ if (isset($_SESSION['cart']) && ($_SESSION['cart'] != [])) {
         </div>
     </div>
     </body>
-
+            
     </html>
 <?php
 
 } else {
-    echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Bạn chưa thêm gì vào giỏ hàng :<
+    echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Bạn chưa thêm gì vào giỏ hàng :
 
     <a class="text-center text-[32px] border border-slate-300 ..." href="index.php?act=san_pham" >Quay lại trang sản phẩm</a>
     </h1>';

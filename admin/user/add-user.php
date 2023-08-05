@@ -38,7 +38,7 @@
         </div>
         <div class="">
             <hr class="my-10">
-            <img class="rounded" src="../upload/adduser.jpg" alt="">
+            <img class="rounded" src="../upload/tải xuống.jpeg" alt="">
             <hr class="my-10">
         </div>
     </div>

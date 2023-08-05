@@ -22,6 +22,7 @@
         </tr>
 
         <?php
+
         foreach ($ds_san_pham as $dssp) {
             extract($dssp);
 
