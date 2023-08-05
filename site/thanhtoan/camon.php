@@ -67,6 +67,7 @@ if(isset($_GET['partnerCode'])){
 				$insert_order_details = "INSERT INTO detail_order(id_product,id_order,quanlity,color,size) VALUE('".$id_sanpham."','".$code_order."','".$soluong."','".$colors."','".$size."')";
 				pdo_execute($insert_order_details);
 			}}
+			
 			unset($_SESSION['cart']);
 			echo '<h3 class=" text-center text-[32px]">Đặt hàng thành công, Đơn hàng giá '.$amount.' VNĐ đang được giao đến bạn.</h3>';
 			echo '<p  class=" text-center text-[32px] ">Vui lòng vào trang  <a  href="index.php?act=detail_order" ><span class="text-red bg-black-300" >Đơn hàng của tôi</span></a> để xem chi tiết đơn hàng của bạn</p>';
