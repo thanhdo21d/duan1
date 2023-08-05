@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include "../global.php";
 include "../guest/pdo.php";
 include "../guest/product.php";
@@ -80,6 +79,7 @@ if (isset($_GET['act'])) {
 
         case "them_san_pham":
             if (isset($_POST['btn_luu'])) {
+                
                 $product_name = $_POST['product_name'];
                 $product_price = $_POST['product_price'];
                 $product_price_sale = $_POST['product_price_sale'];
@@ -111,7 +111,6 @@ if (isset($_GET['act'])) {
         case "listsp":
             $ds_danh_muc = lay_tat_ca_danh_muc();
             $ds_san_pham = lay_tat_ca_san_pham_admin();
-
             include "san_pham/listsp.php";
             break;
 
@@ -320,3 +319,4 @@ if (isset($_GET['act'])) {
 
     include "layout/home.php";
 }
+?>

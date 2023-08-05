@@ -25,14 +25,14 @@ if (!is_array($pro)) {
 <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-5 ">
         <div class="col-span-3">
-            <div class="bg-[#F3F3F5] mb-4"><img src="<?= $image ?>" alt=""></div>
+            <div class="bg-[#F3F3F5] mb-4"><img class="w-[100%]" src="<?= $image ?>" alt=""></div>
 
             <div class="grid grid-cols-2 gap-4">
                 <div class="bg-[#F3F3F5]">
-                    <img src="<?= $image2 ?>" alt="">
+                    <img class="w-[100%] h-[100%]" src="<?= $image2 ?>" alt="">
                 </div>
                 <div class="bg-[#F3F3F5]">
-                    <img src="<?= $image3 ?>" alt="">
+                    <img class="w-[100%] h-[100%]" src="<?= $image3 ?>" alt="">
                 </div>
             </div>
         </div>

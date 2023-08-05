@@ -78,7 +78,8 @@
                         </div>
                         <h3 class="text-gray-600 my-2"> <?= $product_name  ?></h3>
                         <div class="flex">
-                            <span style="vertical-align: -webkit-baseline-middle"><?= $product_price ?> VNĐ</span>
+                            <span style="vertical-align: -webkit-baseline-middle"><?= number_format($product_price, 0, ',', '.') ?> VNĐ</span>
+
                 </a>
 
                 <form action="index.php?act=addtocart" method="post">
