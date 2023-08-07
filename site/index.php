@@ -2,6 +2,9 @@
 // Khởi tạo session bằng session_start()
 session_start();
 ob_start();
+if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
+if(!isset($_SESSION['dangky']) && isset($_GET['act']))echo "<script>window.location.href='./index.php'</script>";// ko đăng nhập chỉ xem được trang chủ
+
 
 include "../global.php";
 include "../guest/category.php";
@@ -120,6 +123,7 @@ if (isset($_GET['act'])) {
         $tm = 0;
         // tìm và so sánh sp trong giỏ hàng
         include "cart/viewcart.php";
+        echo "<script>window.location.href='?act=viewcart'</script>";
       }
       break;
     case 'delcart':
@@ -186,7 +190,7 @@ if (isset($_GET['act'])) {
     case 'thanhtoan_COD':
       if (isset($_SESSION['dangky'])) {
         $money = $_GET['tong'];
-        include "thanhtoan/camon.php";
+        include "./thanhtoan/camon.php";
       } else {
         echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Vui lòng đăng nhập để thanh toán</h1>';
         include "cart/viewcart.php";

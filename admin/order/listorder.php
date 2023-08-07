@@ -51,8 +51,9 @@
                             <td class="border-2 border-cyan-500 py-4 px-2 text-center">
                             '.$order['ship_address'].'
                             </td>
-                            <td class="border-2 border-cyan-500 py-2 px-2 text-center ">
-                            '.$order['total'].'
+                            <td class="border-2 border-cyan-500 py-2 px-2 text-center 
+                            "> 
+                            '.number_format($order['total']).'
                             </td>
                             <td class="border-2 border-cyan-500 py-4  text-center">
                             <select name="status"> ';

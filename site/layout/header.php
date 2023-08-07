@@ -651,6 +651,8 @@ body {
                                 </div>
                             </div>
                         </div>
+                        
+                        </div>
                             ';
                         $i++;
                     }
@@ -807,11 +809,13 @@ body {
                     <a id="opencart">
 
                         <div id="cart" class="cart" data-totalitems="0">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 3 24 20" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 text-right">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 3 24 20" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-right" data-totalitems="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                <?php if(isset($_SESSION['dangky'])){?><span style="position: absolute;margin-top:-35px;z-index:20;color:#fff;border-radius:100%;background:#000;font-weight:bold;line-height:5px" class="ml-9 p-0.5"><?=count($_SESSION['cart'])?></span><?php }?>
                             </svg>
+                        </div>
+                        <div>
+                            
                         </div>
 
                     </a>

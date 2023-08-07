@@ -45,10 +45,10 @@
                     <img src="<?= $image2 ?>" alt="" width="50px" class="text-center inline-block">
                 </td>
                 <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
-                    <?= $product_price ?>
+                    <?= number_format($product_price) ?>
                 </td>
                 <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
-                    <?= $product_price_sale ?>
+                    <?= number_format($product_price_sale) ?>
                 </td>
                 <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
                     <?= $description ?>

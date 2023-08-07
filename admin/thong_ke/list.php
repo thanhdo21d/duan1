@@ -21,9 +21,9 @@
                         <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $madm ?></td>
                         <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= $tendm ?></td>
                         <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $countsp ?></td>
-                        <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= $maxprice ?></td>
-                        <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= $minprice ?></td>
-                        <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= $avgprice ?></td>
+                        <td class="border-2 border-cyan-500/50 text-center px-6 py-2"><?= number_format($maxprice) ?></td>
+                        <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= number_format($minprice) ?></td>
+                        <td class="border-2 border-cyan-500/50 text-center  px-6 py-2"><?= number_format($avgprice) ?></td>
                     </tr>
             <?php
                 }

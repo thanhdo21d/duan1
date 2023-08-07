@@ -22,6 +22,7 @@ if (!is_array($pro)) {
 }
 ?>
 <hr class="my-10">
+
 <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-5 ">
         <div class="col-span-3">
@@ -48,13 +49,13 @@ if (!is_array($pro)) {
                 <div class="color flex space-x-6 items-center mt-6">
                     <h3 class="">Color: </h3>
                     <input type="radio" name="colors" value="yellow" id="yellow">
-                    <label for="yellow" class="yellow rounded-lg"><img src="" alt=""></label>
+                    <label for="yellow" class="yellow color_click rounded-lg"><img src="" alt=""></label>
                     <input type="radio" name="colors" value="green" id="green">
-                    <label for="green" class="green rounded-lg"></label>
+                    <label for="green" class="green color_click_green rounded-lg"></label>
                     <input type="radio" name="colors" value="black" id="black">
-                    <label for="black" class="black rounded-lg"></label>
+                    <label for="black" class="black color_click_black rounded-lg"></label>
                     <input type="radio" name="colors" value="pink" id="pink">
-                    <label for="pink" class="pink rounded-lg"></label>
+                    <label for="pink" class="pink color_click_pink rounded-lg"></label>
                  
                 </div>
                 <hr class="my-4 w-[80%] mx-auto">
@@ -195,3 +196,15 @@ if (!is_array($pro)) {
     </div>
 
 </div>
+
+<script>
+  const clicked =  document.querySelector('.color_click')
+  const clicked_green =  document.querySelector('.color_click_green')
+  function clickbycolor(){
+    console.log('click by color')
+    if(clicked.checked){
+        clicked.style.width ="40px"
+    }
+  }
+  clicked.onclick = clickbycolor
+</script>
