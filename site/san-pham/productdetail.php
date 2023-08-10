@@ -49,15 +49,28 @@ if (!is_array($pro)) {
                 <div class="color flex space-x-6 items-center mt-6">
                     <h3 class="">Color: </h3>
                     <input type="radio" name="colors" value="yellow" id="yellow">
-                    <label for="yellow" class="yellow color_click rounded-lg"><img src="" alt=""></label>
+                    <label for="yellow" class="yellow color_click rounded-lg" onclick="update(0)"><img src="" alt=""></label>
                     <input type="radio" name="colors" value="green" id="green">
-                    <label for="green" class="green color_click_green rounded-lg"></label>
+                    <label for="green" class="green color_click rounded-lg" onclick="update(1)"></label>
                     <input type="radio" name="colors" value="black" id="black">
-                    <label for="black" class="black color_click_black rounded-lg"></label>
+                    <label for="black" class="black color_click rounded-lg" onclick="update(2)"></label>
                     <input type="radio" name="colors" value="pink" id="pink">
-                    <label for="pink" class="pink color_click_pink rounded-lg"></label>
+                    <label for="pink" class="pink color_click rounded-lg" onclick="update(3)"></label>
                  
                 </div>
+                <style>
+                    .color_click{
+                        transition: 0.5s;
+                    }
+                </style>
+                <script>
+                function update(id){
+                    var color = document.getElementsByClassName("color_click");
+                    for(i=0;i<color.length;i++)color[i].style.transform="scale(0.8)";
+                    color[id].style.transform="scale(1.6)";
+
+                }
+                </script>
                 <hr class="my-4 w-[80%] mx-auto">
                 <div class="size flex space-x-6 items-center ">
                     <h3>Rom: </h3>
@@ -179,13 +192,13 @@ if (!is_array($pro)) {
             echo '
                
             <a href="' . $linksp . '" class="px-2 text-gray-600">
-            <div class="my-10">
-            <img src="' . $image2 . '" alt="" class="bg-[#F3F3F3] mx-auto w-[184px] h-[184px]">
+            <div class="my-10 border w-[280px] shadow-md border-gray-300 rounded-md h-[383px]">
+            <img src="' . $image2 . '" alt="" class="bg-[#F3F3F3] mt-2 mx-auto w-[184px] h-[184px]">
             <h3 class="text-gray-600 my-4 text-center">' . $product_name . '</h3>
-            <div class="flex mx-auto text-[14px] text-center">
-                <span class="ml-8 mt-2">'. number_format($product_price, 0, ',', '.') . ' VNĐ</span>
-                
-                <button class="ml-4 hover:border-2 border-gray-200 bg-green-500 rounded-md p-2 text-white"> Add To Cart </button>
+            <div class="mx-auto text-[14px] text-center">
+                <span class=" text-xl font-bold mt-2">'. number_format($product_price, 0, ',', '.') . ' VNĐ</span>
+                <br/>
+                <button class=" hover:border-2 mt-5 w-[80%] border-gray-200 bg-green-500 rounded-md p-2 text-white"> Add To Cart </button>
             </div>
             </div>
             </a>
@@ -197,14 +210,17 @@ if (!is_array($pro)) {
 
 </div>
 
-<script>
+<!-- <script>
   const clicked =  document.querySelector('.color_click')
   const clicked_green =  document.querySelector('.color_click_green')
   function clickbycolor(){
     console.log('click by color')
-    if(clicked.checked){
-        clicked.style.width ="40px"
+    for(let i = 0 ;i<clicked.length;i++){
+    if(clicked[i].checked){
+        clicked[i].style.width ="40px";
+        clicked[i].style.transform ="scale(1.5)";
     }
+}
   }
   clicked.onclick = clickbycolor
-</script>
+</script> -->

@@ -9,6 +9,11 @@ include "../guest/account.php";
 include "../guest/binh_luan.php";
 include "layout/header.php";
 include "../guest/thongke.php";
+
+// echo "<script>alert('".$_SESSION['id_user']."')</script>";
+
+$adminUser=array('admin','admin1');
+if(isset($_SESSION['id_user']) &&in_array(mysqli_fetch_array(mysqli_query($db_con,"SELECT user_name from user WHERE id='{$_SESSION['id_user']}' "))['user_name'],$adminUser)){
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {
@@ -318,5 +323,11 @@ if (isset($_GET['act'])) {
     $binh_luan = count(lay_tat_ca_binh_luan());
 
     include "layout/home.php";
+}
+}
+else{
+    //ko có quyền admin
+    echo "<script>alert('Hãy đăng nhập bằng tài khoản admin để tiếp tục');window.location.href='../index.php'</script>";
+
 }
 ?>

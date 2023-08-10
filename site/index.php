@@ -4,7 +4,7 @@ session_start();
 ob_start();
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
 if(!isset($_SESSION['dangky']) && isset($_GET['act']))echo "<script>window.location.href='./index.php'</script>";// ko đăng nhập chỉ xem được trang chủ
-
+// echo "<script>alert('".$_SESSION['id_user']."')</script>";
 
 include "../global.php";
 include "../guest/category.php";
@@ -35,6 +35,9 @@ if (isset($_GET['act'])) {
         $iddm = $_GET['iddm'];
       } else {
         $iddm = 0;
+      }
+      if(!isset($_POST['kw'])){
+        header("location:index.php");
       }
       $ds_san_pham = lay_tat_ca_san_pham($kw, $iddm);
       $tendm = load_ten_dm($iddm);
@@ -123,6 +126,7 @@ if (isset($_GET['act'])) {
         $tm = 0;
         // tìm và so sánh sp trong giỏ hàng
         include "cart/viewcart.php";
+        
         echo "<script>window.location.href='?act=viewcart'</script>";
       }
       break;
@@ -199,6 +203,9 @@ if (isset($_GET['act'])) {
     case 'detail_order':
       include "detail_order.php";
       break;
+    case 'change_pass':
+        include "./components/ChangePass.php";
+        break;
     default:
       include "../site/layout/home.php";
       $san_pham = count(lay_tat_ca_san_pham_guest());

@@ -67,7 +67,7 @@
     
                 <div class="">
                 <h3 class="my-4">Viết bình luận bạn tại đây</h3>
-                <textarea class="border-2 border-black w-full" name="comment" id="comment" cols="30" rows="10" placeholder="Viết bình luận của bạn tại đây ..."></textarea>
+                <textarea class="border-2 border-black p-5 w-full" name="comment" id="comment" cols="30" rows="10" placeholder="Viết bình luận của bạn tại đây ..."></textarea>
             </div>
                 <button class="bg-black my-8 rounded-2xl text-white py-3 text-2xl font-semibold px-8" name="btn_insert">Đăng tải bình luận</button>';
     } else {

@@ -645,7 +645,7 @@ body {
                                     </div>
 
                                     <div class="price my-2">
-                                        $ <span id="price">' . $product[3] . '</span>
+                                        $ <span id="price">' . number_format($product[3], 0, ',', '.'). '</span>
                                     </div>
 
                                 </div>
@@ -660,10 +660,10 @@ body {
                 <hr>
             </div>
             <hr width=" mx-auto">
-            <div class="flex justify-between my-10">
+            <div class="flex justify-between my-10 px-5">
                 <h3 class="text-xl">TỔNG CỘNG</h3>
-                <div class="subtotal">
-                    <span>$ <span id="subtotal"><?= $tong; ?></span></span>
+                <div class="subtotal px-5">
+                    <span>$ <span id="subtotal"><?= number_format($tong, 0, ',', '.'); ?></span></span>
                 </div>
             </div>
 
@@ -761,6 +761,9 @@ body {
                  
                     <input type="submit" value="Đơn hàng của tôi" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
                 </form>
+                <form method="post" action="index.php?act=change_pass">
+                    <input type="submit" value="Đổi mật khẩu" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
+                </form>
              
                 
                 ';
@@ -832,8 +835,8 @@ body {
         </div>
         <div class="list-none hidden flex justify-center space-x-8 my-10 " id="tk">
             <form class="w-[300px] h-[35px] border border-gray-400  rounded-md" action="index.php?act=san_pham" method="post">
-                <input type="text" class="pl-2" placeholder="Tìm kiếm sản phẩm" name="kw">
-                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit" name="timkiem">Tìm Kiếm</button>
+                <input type="search" class="pl-2" placeholder="Tìm kiếm sản phẩm" name="kw">
+                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit">Tìm Kiếm</button>
 
             </form>
         </div>

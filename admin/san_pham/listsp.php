@@ -50,15 +50,25 @@
                 <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
                     <?= number_format($product_price_sale) ?>
                 </td>
-                <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
-                    <?= $description ?>
-                </td>
+               <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
+    <?php
+        if (isset($description)) {
+            if (mb_strlen($description) > 70) {
+                $shortDescription = mb_substr($description, 0, 70) . '...';
+                echo htmlspecialchars($shortDescription, ENT_QUOTES);
+            } else {
+                echo htmlspecialchars($description, ENT_QUOTES);
+            }
+        }
+    ?>
+</td>
+
                 <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
                     <?= $cate['categories_name'] ?>
                 </td>
-                <td class="border-2 border-cyan-500/50 py-4 px-2 text-center">
-                    <a class="py-1 px-4 bg-[#1E74A4] hover:bg-[#BAAACE] hover:text-white text-white rounded-md mx-2" href="<?= $suasp ?>">Sửa</a>
-                    <a onclick="return confirm('Bạn có muốn xóa không')" class="text-white hover:bg-[#BAAACE] hover:text-white bg-[#AC3131] py-1 px-4 rounded-md mx-2" href="<?= $xoasp ?>">Xóa</a>
+                <td class="border-2 border-cyan-500/50 relative py-4 px-2 text-center">
+                    <a class="py-1 absolute top-[15px] left-1 px-4 bg-[#1E74A4] hover:bg-[#BAAACE] hover:text-white text-white rounded-md mx-2" href="<?= $suasp ?>">Sửa</a>
+                    <a onclick="return confirm('Bạn có muốn xóa không')" class="text-white absolute left-1 hover:bg-[#BAAACE] hover:text-white bg-[#AC3131] py-1 px-4 rounded-md mx-2" href="<?= $xoasp ?>">Xóa</a>
                 </td>
             </tr>
 

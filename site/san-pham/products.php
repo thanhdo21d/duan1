@@ -43,18 +43,21 @@
                 <div class="text-[12px] text-center">
                     <a href="' . $linksp . '" class="px-2 text-gray-600">' . $product_name . '</a>
                     <div class="flex">
-                        <span class="ml-8 my-2">' . $product_price . ' VNĐ</span>
+                        <span class="ml-8 my-2">' .number_format($product_price, 0, ',', '.') . ' VNĐ</span>
                     </div>
                 </div>
             </div>
                 ';
             }
+            $myProduct=strtolower($_POST['kw']);
+            $count=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM product WHERE LOWER(product_name) like '%$myProduct%'"))['count(*)'];
+            $san_pham=$count;
             ?>
         </div>
     </div>
     <div class="my-4 col-span-3 ">
         <div class="flex justify-between mb-10">
-            <span class="text-gray-600 ">Đang hiển thị <?= $san_pham ?> kết quả</span>
+            <span class="text-gray-600 ">Đang hiển thị <?= $count ?> kết quả</span>
             <div class="text-center">
                 <select name="" id="" class="">
                     <option value="" class="text-gray-600 ">Bộ lọc</option>
@@ -65,9 +68,13 @@
             <?php
             //  echo print_r($ds_san_pham);
             //  die();
-            foreach ($danh_sach_sp_moi as $dssp) {
-                extract($dssp);
+            $qr=mysqli_query($db_con,"SELECT * FROM product WHERE LOWER(product_name) like '%$myProduct%'");
+            while($val=mysqli_fetch_assoc($qr)) {
+                $product_name=$val['product_name'];
+                $product_price=$val['product_price'];
+                // extract($dssp);
                 $image2 = $img_path . $image2;
+                $image2=$img_path.$val['image2'];
             ?>
             <div class="">
                 <a href="index.php?act=productdetail&id= <?php echo $id ?>">
@@ -77,7 +84,7 @@
                                 class="w-[259px] h-[259px] hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
                         </div>
                         <h3 class="text-gray-600 my-2"> <?= $product_name  ?></h3>
-                        <div class="flex">
+                        <div class="flex items-center">
                             <span style="vertical-align: -webkit-baseline-middle"><?= number_format($product_price, 0, ',', '.') ?> VNĐ</span>
 
                 </a>

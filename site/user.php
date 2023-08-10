@@ -14,7 +14,7 @@
     <header>
         <div class="flex items-center space-x-4 mx-6 my-4">
             <a href="index.php">
-                <h1 class="font-medium text-2xl font-semibold">ROYAL CENTER</h1>
+                <h1 class="font-medium text-2xl font-semibold">Tech88 Mobile Store</h1>
             </a>
             <SPAN class="text-xl font-thin">|</SPAN>
             <SPAN class="font-thin text-[14px]">
@@ -92,7 +92,7 @@
             <div class="col-span-2">
                 <div class="flex items-center">
                     <img srcset="../upload/logo.png 2x" alt="" class="w-[80px] mx-4">
-                    <h2 class="text-3xl ">Royal CenTer</h2>
+                    <h2 class="text-3xl ">Tech88 Mobile Store</h2>
                 </div>
                 <p class="mx-8 hover:underline my-6">But I must explain to you how all this mistaken idea of denouncing
                     pleasure and
@@ -100,7 +100,7 @@
                     born and I will give you</p>
                 <div class="mx-8 my-4">
                     <input type="text" class="border-2 py-2 px-20 rounded-lg" required placeholder="Your email">
-                    <button class="border-2 py-2 px-8 rounded-lg">Subscribe</button>
+                    <button class="border-2 py-2 px-8 rounded-lg mt-3 bg-green-400 text-xl font-bold  text-white">Subscribe</button>
                 </div>
             </div>
             <div class="col-span-1 mx-10">

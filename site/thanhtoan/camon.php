@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
           ');
           $uid=$_SESSION['id_user'];
           // insert_bill($$uid, $name, $location, $phone, 'COD', '0000-00-00 00:00:00', $money);
-          @mysqli_query($db_con,"INSERT into `order`(id_user,code_cart,status,total,ship_address,ship_name_user,ship_phone_user,pttt,time)values($uid,'$CodeCart',1,$money,'$location','$name','$phone','COD','0000-00-00 00:00:00')");
+          @mysqli_query($db_con,"INSERT into `order`(id_user,code_cart,status,total,ship_address,ship_name_user,ship_phone_user,pttt)values($uid,'$CodeCart',0,$money,'$location','$name','$phone','COD')");
           unset($_SESSION['cart']);
          
      }

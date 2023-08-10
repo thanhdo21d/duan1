@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th8 05, 2023 lúc 02:37 PM
+-- Thời gian đã tạo: Th8 08, 2023 lúc 02:18 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -85,7 +85,36 @@ INSERT INTO `detail_order` (`id`, `id_product`, `id_order`, `quanlity`, `size`, 
 (67, 8, 7081, 1, '2', '1'),
 (68, 6, 4646, 1, '2', '1'),
 (69, 6, 8639, 2, 'L', 'green'),
-(70, 6, 8639, 1, 'XL', 'black');
+(70, 6, 8639, 1, 'XL', 'black'),
+(71, 22, 4322, 1, '128g', 'green'),
+(72, 23, 4322, 1, '256g', 'pink'),
+(73, 22, 7266, 2, '128g', 'green'),
+(74, 23, 7266, 1, '256g', 'pink'),
+(75, 22, 4384, 5, '64g', 'yellow'),
+(76, 22, 7294, 1, '128g', 'black'),
+(77, 22, 6760, 3, '128g', 'black'),
+(78, 21, 6760, 2, '64g', 'yellow'),
+(79, 21, 7125, 4, '128g', 'green'),
+(80, 21, 3304, 4, '128g', 'green'),
+(81, 22, 3304, 4, '64g', 'black'),
+(82, 22, 8848, 2, '128g', 'green'),
+(83, 21, 8848, 2, '128g', 'black'),
+(84, 22, 5607, 5, '256g', 'pink'),
+(85, 21, 8366, 6, '256g', 'pink'),
+(86, 21, 1663, 6, '256g', 'pink'),
+(87, 22, 1663, 4, '64g', 'yellow'),
+(88, 21, 3493, 6, '256g', 'pink'),
+(89, 22, 3493, 5, '64g', 'yellow'),
+(90, 22, 3061, 1, '128g', 'black'),
+(91, 22, 9130, 1, '128g', 'black'),
+(92, 22, 9130, 1, '128g', 'green'),
+(93, 21, 8906, 1, '128g', 'green'),
+(94, 22, 3183, 2, '128g', 'green'),
+(95, 22, 9847, 2, '128g', 'green'),
+(96, 22, 9640, 2, '128g', 'green'),
+(97, 22, 9640, 1, '128g', 'black'),
+(98, 22, 1119, 1, '128g', 'green'),
+(99, 21, 8585, 1, '128g', 'yellow');
 
 -- --------------------------------------------------------
 
@@ -99,7 +128,7 @@ CREATE TABLE `order` (
   `code_cart` varchar(11) NOT NULL,
   `status` tinyint(2) NOT NULL,
   `total` int(11) DEFAULT NULL,
-  `time` datetime DEFAULT NULL,
+  `time` timestamp COLLATE utf8_bin NOT NULL DEFAULT current_timestamp(),
   `ship_address` varchar(255) DEFAULT NULL,
   `ship_name_user` varchar(255) DEFAULT NULL,
   `ship_phone_user` varchar(255) DEFAULT NULL,
@@ -113,7 +142,25 @@ CREATE TABLE `order` (
 INSERT INTO `order` (`id`, `id_user`, `code_cart`, `status`, `total`, `time`, `ship_address`, `ship_name_user`, `ship_phone_user`, `pttt`) VALUES
 (79, 22, '7081', 3, 299000, '0000-00-00 00:00:00', 'hà nội', 'Trần Hoàng Phi', '09866663', 'COD'),
 (80, 24, '4646', 2, 499000, '0000-00-00 00:00:00', 'TDP Vĩnh Thịnh', 'admin', '988888887', 'COD'),
-(82, 24, '8639', 2, 1497000, '0000-00-00 00:00:00', 'TDP Vĩnh Thịnh', 'admin', '988888887', 'COD');
+(82, 24, '8639', 2, 1497000, '0000-00-00 00:00:00', 'TDP Vĩnh Thịnh', 'admin', '988888887', 'COD'),
+(83, 24, '4384', 3, 111110, '0000-00-00 00:00:00', 'eqwrewrewr', 'cúp c1', NULL, 'COD'),
+(84, 24, '7294', 1, 22222, '0000-00-00 00:00:00', 'dqewdqw', 'thanhdo vu', NULL, 'COD'),
+(85, 24, '6760', 1, 111110, '0000-00-00 00:00:00', 'bxdfgdsgdsg', 'thanhdo vu', NULL, 'COD'),
+(86, 24, '7125', 1, 88888, '0000-00-00 00:00:00', 'gdsfgdsgds', 'thanhdo vu', NULL, 'COD'),
+(87, 24, '3304', 1, 177776, '0000-00-00 00:00:00', 'gsdgsdgs', 'thanhdo vu', NULL, 'COD'),
+(88, 24, '8848', 1, 88888, '0000-00-00 00:00:00', 'qrwerwqe', 'cúp c1', NULL, 'COD'),
+(89, 24, '5607', 1, 111110, '0000-00-00 00:00:00', 'gfasgsdgsd', 'thay tu wibu', NULL, 'COD'),
+(90, 24, '8366', 1, 133332, '0000-00-00 00:00:00', 'r313232', 'thay tu wibu', '23412323132', 'COD'),
+(91, 24, '1663', 3, 222220, '0000-00-00 00:00:00', 'hà nội', 'hoàng', '02273676767', 'COD'),
+(92, 24, '3493', 1, 244442, '0000-00-00 00:00:00', 'ưertgert', 'thay tu wibu', '23412323132', 'COD'),
+(93, 24, '3061', 1, 22222, '0000-00-00 00:00:00', '', '', '', 'COD'),
+(94, 24, '9130', 1, 44444, '0000-00-00 00:00:00', '', '', '', 'COD'),
+(95, 24, '8906', 1, 22222, '0000-00-00 00:00:00', 'hà nội ', 'user num', '02273676767', 'COD'),
+(96, 24, '3183', 1, 44444, '0000-00-00 00:00:00', 'ffwfe', 'dovtph24172@fpt.edu.vn', 'thanhdo21g', 'COD'),
+(97, 24, '9847', 1, 44444, '0000-00-00 00:00:00', 'rưerew', 'dovtph24172@fpt.edu.vn', '0566730000', 'COD'),
+(98, 24, '9640', 3, 66666, '0000-00-00 00:00:00', 'vfevgfegr', 'dovtph24172@fpt.edu.vn', '0566730000', 'COD'),
+(99, 24, '1119', 3, 22222, '0000-00-00 00:00:00', 'hà nội', 'thành ', '0123456789', 'COD'),
+(100, 24, '8585', 2, 22222, '0000-00-00 00:00:00', 'hà nội', 'dương', '0000000000', 'COD');
 
 -- --------------------------------------------------------
 
@@ -158,6 +205,13 @@ CREATE TABLE `product_rev` (
   `comment` varchar(255) NOT NULL,
   `ngay_bl` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_rev`
+--
+
+INSERT INTO `product_rev` (`id`, `id_user`, `id_product`, `stars`, `comment`, `ngay_bl`) VALUES
+(36, 24, 22, 3, 'rất tốt', '2023-08-06');
 
 -- --------------------------------------------------------
 
@@ -369,8 +423,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `user_name`, `full_name`, `email`, `phone`, `address`, `role`, `password`) VALUES
 (22, 'Phi 2', 'Trần Hoàng Phi', 'phithph22381@fpt.edu.vn', '09866663', 'hà nội', 0, 'vip'),
 (24, 'admin', 'admin', 'admin@gmail.com', '988888887', 'TDP Vĩnh Thịnh', 1, 'admin'),
-(25, 'user', 'user', 'user@gmail.com', '8983437', 'ha noi', 0, 'user'),
-(29, 'dqwd', 'dqwd', 'dew@gmail.com', 'qưd', 'dqd', 1, 'qwd');
+(25, 'user', 'user', 'user@gmail.com', '8983437', 'ha noi', 0, 'user');
 
 -- --------------------------------------------------------
 
@@ -475,13 +528,13 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT cho bảng `detail_order`
 --
 ALTER TABLE `detail_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
@@ -493,7 +546,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT cho bảng `product_rev`
 --
 ALTER TABLE `product_rev`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
