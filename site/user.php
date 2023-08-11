@@ -58,7 +58,7 @@
                     </div>
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Điện thoại *</label><br>
-                        <input type="text" placeholder="098+ ?? " name="phone" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        <input type="text" placeholder="098+ ?? " name="phone" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="5">
                     </div>
                 </div>
                 <button class="font-semibold text-xl px-6 py-2 bg-black text-[#FFFFFF]" type="submit" name="confirm">Xác nhận</button>

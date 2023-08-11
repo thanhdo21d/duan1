@@ -95,27 +95,29 @@ if(isset($_POST['submit'])){
 <div id="main flex gap-10 relative">
 	<div class="ml-10">
 		<form action="" method="post">
-               <label for="diachi" class="pl-[10px]"> Địa chỉ nhận hàng </label>
-			<div class="form_wrapper rounded-md">
-				<input type="text" class=" pl-3  my-2" name="location" id="diachi"  placeholder="Địa chỉ nhận hàng" require>
-			</div>
-               <label for="phonei" class="pl-[10px]"> Số điện thoại nhận hàng </label>
-			<div class="form_wrapper rounded-md">
-				<input type="tel" name="phone"   class=" pl-3  my-2" id="phonei"  placeholder="Số điện thoại" require>
-			</div>
-               <label for="namei" class="pl-[10px]"> Tên người nhận nhận hàng </label>
+    <label for="diachi" class="pl-[10px]"> Địa chỉ nhận hàng </label>
+    <div class="form_wrapper rounded-md">
+        <input type="text" class="pl-3 my-2" name="location" id="diachi" placeholder="Địa chỉ nhận hàng" required pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')" onchange="this.value = this.value.trim()">
+    </div>
+    
+    <label for="phonei" class="pl-[10px]"> Số điện thoại nhận hàng </label>
+    <div class="form_wrapper rounded-md">
+        <input type="tel" name="phone" class="pl-3 my-2" id="phonei" placeholder="Số điện thoại" required pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')" onchange="this.value = this.value.trim()">
+    </div>
+    
+    <label for="namei" class="pl-[10px]"> Tên người nhận hàng </label>
+    <div class="form_wrapper rounded-md">
+        <input type="text" name="name" class="pl-3 my-2" id="namei" placeholder="Tên người nhận" required pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')" onchange="this.value = this.value.trim()">
+    </div>
+    
+    <label for="emaili" class="pl-[10px]"> Xác nhận email đăng ký </label>
+    <div class="form_wrapper rounded-md">
+        <input type="email" name="email" class="pl-3 my-2" id="emaili" placeholder="Xác nhận email đăng ký" required pattern=".{5,}" title="Vui lòng nhập ít nhất 5 ký tự" oninput="setCustomValidity('')" onchange="this.value = this.value.trim()">
+    </div>
+    
+    <button class="bg-green-500 border border-green-600 rounded-md text-white text-xl font-bold p-4 w-1/2 ml-3 mt-4" type="submit" name="submit">Xác nhận thanh toán</button>
+</form>
 
-			<div class="form_wrapper rounded-md">
-				<input type="text" name="name"  class=" pl-3  my-2" id="namei"  placeholder="Tên người nhận" require>
-			</div>
-               <label for="namei" class="pl-[10px]"> Xác nhận email đăng kí </label>
-
-               <div class="form_wrapper rounded-md">
-				<input type="email" name="email"  class=" pl-3  my-2" id=""  placeholder="Xác nhận email đăng kí" require>
-			</div>
-               <button class="bg-green-500 border border-green-600 rounded-md text-white text-xl font-bold p-4 w-1/2 ml-3 mt-4" type="submit" name="submit" style="">Xác nhận thanh toán</button>
-			
-		</form>
 	</div>
      <div class="absolute top-[27%] right-5">
                <img class="w-[600px] h-[390px] rounded-md shadow-xl" src="https://cdn.tgdd.vn/Products/Images/42/251192/Slider/iphone-14-pro-max-thumb-1020x570.jpg" alt="">
