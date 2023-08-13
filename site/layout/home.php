@@ -60,7 +60,7 @@
         $linkdm = "index.php?act=san_pham&iddm=" . $id;
         echo '
                         <div class="">
-                        <a href="' . $linkdm . '"><img style="width:282px ; height:300px" src="' . $image . '"></a>
+                        <a href="' . $linkdm . '"><img style="width:282px ; height: 260px" src="' . $image . '"></a>
                         <h3 class="text-center my-5 text-xl ">' . $categories_name . '</h3></div>
                     ';
     }
