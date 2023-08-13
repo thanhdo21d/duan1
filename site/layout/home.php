@@ -60,7 +60,7 @@
         $linkdm = "index.php?act=san_pham&iddm=" . $id;
         echo '
                         <div class="">
-                        <a href="' . $linkdm . '"><img style="width:282px ; height: 260px" src="' . $image . '"></a>
+                        <a href="' . $linkdm . '"><img style="width:285px ; height: 230px" src="' . $image . '"></a>
                         <h3 class="text-center my-5 text-xl ">' . $categories_name . '</h3></div>
                     ';
     }
@@ -121,7 +121,7 @@
         echo '
         
                 <div class="colums text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:border-2 hover:border-violet-900 duration-300 group px-4 py-4">
-                    <img src=" ' . $image2 . '";" alt="" class="text-center bg-[#F3F3F5] w-[85%] w-[259px] h-[259px]  mx-auto" />
+                    <img src=" ' . $image2 . '";" alt="" class="text-center bg-[#F3F3F5] w-[85%] w-[269px] h-[230px]  mx-auto" />
                         <h3 class="my-2 inline-block ">
                             <a href="" class="text-xl my-4 font-bold">' . $product_name . '</a>
                         </h3>
