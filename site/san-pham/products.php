@@ -51,6 +51,8 @@
             }
             $myProduct=strtolower($_POST['kw']);
             $count=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM product WHERE LOWER(product_name) like '%$myProduct%'"))['count(*)'];
+            if(isset($_GET['iddm'])) $count=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM product WHERE id_categories='{$_GET['iddm']}'"))['count(*)'];
+
             $san_pham=$count;
             ?>
         </div>
@@ -69,8 +71,10 @@
             //  echo print_r($ds_san_pham);
             //  die();
             $qr=mysqli_query($db_con,"SELECT * FROM product WHERE LOWER(product_name) like '%$myProduct%'");
+            if(isset($_GET['iddm'])) $qr=mysqli_query($db_con,"SELECT * FROM product WHERE id_categories='{$_GET['iddm']}'");
             while($val=mysqli_fetch_assoc($qr)) {
                 $product_name=$val['product_name'];
+                $id=$val['id'];
                 $product_price=$val['product_price'];
                 // extract($dssp);
                 $image2 = $img_path . $image2;
@@ -79,9 +83,9 @@
             <div class="">
                 <a href="index.php?act=productdetail&id= <?php echo $id ?>">
                     <div class="">
-                        <div class="bg-[#F3F3F3]  w-[259px] h-[259px]">
-                            <img src=" <?= $image2 ?> " alt=""
-                                class="w-[259px] h-[259px] hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
+                        <div class="bg-[#F3F3F3]  w-[259px] h-[250px]">
+                            <img src=" <?= $image2 ?> " alt="" 
+                                class="w-[259px] h-[250px] hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
                         </div>
                         <h3 class="text-gray-600 my-2"> <?= $product_name  ?></h3>
                         <div class="flex items-center">

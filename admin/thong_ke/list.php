@@ -8,10 +8,6 @@
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Tên danh mục</th>
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Số lượng đã bán</th>
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Giá</th>
-
-                <!-- <th class="border-2 border-cyan-500/50  px-6 py-2">Giá cao nhất</th>
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Giá thấp nhất</th>
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Giá trung bình</th> -->
             </tr>
             <?php
             // if ((isset($ds_thong_ke_hh)) && ($ds_thong_ke_hh != [])) {

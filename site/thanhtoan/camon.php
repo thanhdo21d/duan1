@@ -8,12 +8,15 @@ function currency_format($number) {
  }
 
 if(isset($_POST['submit'])){
-     $phone=$_POST['phone'];
-     $location=$_POST['location'];
+     $phone=intval($_POST['phone']);
+     $location=trim($_POST['location']);
      $name=$_POST['name'];
      $email=$_POST['email'];
      $money=0;
-     if(isset($phone) &&isset($location)&&isset($email)&&isset($name)){
+     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+          echo "<script>alert('email không hợp lệ')</script>";
+     }
+     else if(isset($phone) &&isset($location)&&isset($email)&&isset($name)){
           $subject="Payment%20Success";
           // $Mem=mysqli_query($db_con,"SELECT * FROM detail_order");
           $Sp='';

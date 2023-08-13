@@ -619,11 +619,16 @@ body {
                         id="closed">X</button>
                 </div>
                 <?php
+                if(isset($_POST['delete_cart'])){
+                    array_splice($_SESSION['cart'], $_POST['idcart'], 1);
+                }
                     $tong = 0;
                     $i = 0;
                     foreach ($_SESSION['cart'] as $product) {
                         $ttien = $product[3] * $product[4];
                         $tong += $ttien;
+                        //xoá sản phẩm
+                        
                         echo '
                     <div class="my-10">
                         <div class="grid-cols-2 grid items-center my-4 shadow-lg shadow-cyan-500/50 rounded-lg">
@@ -647,9 +652,15 @@ body {
                                     <div class="price my-2">
                                         $ <span id="price">' . number_format($product[3], 0, ',', '.'). '</span>
                                     </div>
+                                    
 
                                 </div>
+                                
                             </div>
+                            <form method="post" action="">
+                                <input type="text" hidden value="'.$i.'" name="idcart">
+                                <button class="h-7" style="background:#000;color:#fff;width:352px" name="delete_cart">Xoá</button>
+                            </form>
                         </div>
                         
                         </div>
@@ -763,6 +774,9 @@ body {
                 </form>
                 <form method="post" action="index.php?act=change_pass">
                     <input type="submit" value="Đổi mật khẩu" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
+                </form>
+                <form method="post" action="index.php?act=livechat">
+                    <input type="submit" value="Chat hỗ trợ" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
                 </form>
              
                 

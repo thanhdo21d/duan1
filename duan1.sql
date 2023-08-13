@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th8 08, 2023 lúc 02:18 PM
+-- Thời gian đã tạo: Th8 12, 2023 lúc 03:58 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -114,7 +114,15 @@ INSERT INTO `detail_order` (`id`, `id_product`, `id_order`, `quanlity`, `size`, 
 (96, 22, 9640, 2, '128g', 'green'),
 (97, 22, 9640, 1, '128g', 'black'),
 (98, 22, 1119, 1, '128g', 'green'),
-(99, 21, 8585, 1, '128g', 'yellow');
+(99, 21, 8585, 1, '128g', 'yellow'),
+(100, 22, 4708, 1, '128g', 'green'),
+(101, 22, 3374, 1, '128g', 'green'),
+(102, 22, 6251, -7, '64g', 'yellow'),
+(103, 22, 3653, 1, '256g', 'pink'),
+(104, 22, 1298, 1, '128g', 'black'),
+(105, 22, 2940, 2, '256g', 'pink'),
+(106, 25, 2599, 1, '256g', 'pink'),
+(107, 22, 3020, 1, '128g', 'black');
 
 -- --------------------------------------------------------
 
@@ -128,7 +136,7 @@ CREATE TABLE `order` (
   `code_cart` varchar(11) NOT NULL,
   `status` tinyint(2) NOT NULL,
   `total` int(11) DEFAULT NULL,
-  `time` timestamp COLLATE utf8_bin NOT NULL DEFAULT current_timestamp(),
+  `time` timestamp NOT NULL DEFAULT current_timestamp(),
   `ship_address` varchar(255) DEFAULT NULL,
   `ship_name_user` varchar(255) DEFAULT NULL,
   `ship_phone_user` varchar(255) DEFAULT NULL,
@@ -160,7 +168,16 @@ INSERT INTO `order` (`id`, `id_user`, `code_cart`, `status`, `total`, `time`, `s
 (97, 24, '9847', 1, 44444, '0000-00-00 00:00:00', 'rưerew', 'dovtph24172@fpt.edu.vn', '0566730000', 'COD'),
 (98, 24, '9640', 3, 66666, '0000-00-00 00:00:00', 'vfevgfegr', 'dovtph24172@fpt.edu.vn', '0566730000', 'COD'),
 (99, 24, '1119', 3, 22222, '0000-00-00 00:00:00', 'hà nội', 'thành ', '0123456789', 'COD'),
-(100, 24, '8585', 2, 22222, '0000-00-00 00:00:00', 'hà nội', 'dương', '0000000000', 'COD');
+(100, 24, '8585', 2, 22222, '0000-00-00 00:00:00', 'hà nội', 'dương', '0000000000', 'COD'),
+(101, 24, '4708', 3, 22222, '2023-08-09 14:57:04', 'dưqdwqdq', 'thay tu wibu', '23412323132', 'COD'),
+(102, 24, '3374', 0, 22222, '2023-08-09 15:02:29', 'fewafdeasfd', 'thay tu wibu', '23412323132', 'COD'),
+(103, 31, '6251', 0, -155554, '2023-08-11 15:38:13', '', '', '', 'COD'),
+(104, 31, '3653', 0, 22222, '2023-08-11 15:39:30', '', '', '', 'COD'),
+(105, 31, '4920', 0, 0, '2023-08-11 15:39:49', '', '', '', 'COD'),
+(106, 31, '1298', 0, 22222, '2023-08-11 15:41:34', '', '', '', 'COD'),
+(107, 31, '2940', 0, 44444, '2023-08-11 15:46:29', '', '', '', 'COD'),
+(108, 31, '2599', 0, 44444, '2023-08-11 15:46:44', '', '', '', 'COD'),
+(109, 31, '3020', 0, 22222, '2023-08-11 15:47:15', 'sssss', 'thanhdo vu', '0566730000', 'COD');
 
 -- --------------------------------------------------------
 
@@ -189,7 +206,9 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `id_categories`, `product_name`, `product_price`, `product_price_sale`, `description`, `origin`, `image`, `image2`, `image3`, `view`) VALUES
 (21, 27, 'Điện thoại iPhone 12 Pro 128GB', '22222', '11111', 'iPhone 12 Pro Max 128 GB một siêu phẩm smartphone đến từ Apple. Máy có một hiệu năng hoàn toàn mạnh mẽ đáp ứng tốt nhiều nhu cầu đến từ người dùng và mang trong mình một thiết kế đầy vuông vức, sang trọng.\r\nThay đổi thiết kế mới sau 6 năm\r\nTheo chu kỳ cứ mỗi 3 năm thì iPhone lại thay đổi thiết kế và 2020 là năm đánh dấu cột mốc quan trong này, vì thế rất có thể đây là thời điểm các mẫu iPhone 12 sẽ có một sự thay đổi mạnh mẽ về thiết kế.\r\n\r\niPhone 12 Pro Max sở hữu diện mạo mới mới với khung viền được vát thẳng và mạnh mẽ như trên iPad Pro 2020, chấm dứt hơn 6 năm với kiểu thiết kế bo cong trên iPhone 6 được ra mắt lần đầu tiên vào năm 2014.', '12345', 'iphone14.jpg', 'iphone14-pro-1.jpg', 'iphone14.jpg', NULL),
 (22, 24, 'Điện thoại Samsung Galaxy A04', '22222', '11111', 'Samsung Galaxy A04 một cái tên khá quen của dòng Galaxy A khi sở hữu cho mình một thiết kế đơn giản nhưng rất tinh tế, camera cho ra những bức ảnh sắc nét và một viên pin lớn mang đến trải nghiệm lâu dài.\r\nHiển thị hình ảnh chi tiết\r\nĐiện thoại Samsung Galaxy A04 (3GB/32GB) sở hữu tấm nền IPS LCD, độ phân giải HD+ cùng kích thước 6.5 inch mang đến không gian giải trí thoải mái, phù hợp với các nhu cầu giải trí của đại đa số người dùng.', '12345', 'samsung.jpg', 'samsung-galaxy-flip4-glr-tim-1.jpg', 'samsung.jpg', NULL),
-(23, 24, 'Điện thoại Samsung Galaxy A04', '22222', '11111', 'Samsung Galaxy A04 một cái tên khá quen của dòng Galaxy A khi sở hữu cho mình một thiết kế đơn giản nhưng rất tinh tế, camera cho ra những bức ảnh sắc nét và một viên pin lớn mang đến trải nghiệm lâu dài.\r\nHiển thị hình ảnh chi tiết\r\nĐiện thoại Samsung Galaxy A04 (3GB/32GB) sở hữu tấm nền IPS LCD, độ phân giải HD+ cùng kích thước 6.5 inch mang đến không gian giải trí thoải mái, phù hợp với các nhu cầu giải trí của đại đa số người dùng.', '123344', 'lg-v60-thinq-600x600-1-600x600.jpg', 'samsung-galaxy-flip4-glr-tim-1.jpg', 'iphone14.jpg', NULL);
+(23, 24, 'Điện thoại Samsung Galaxy A04', '22222', '11111', 'Samsung Galaxy A04 một cái tên khá quen của dòng Galaxy A khi sở hữu cho mình một thiết kế đơn giản nhưng rất tinh tế, camera cho ra những bức ảnh sắc nét và một viên pin lớn mang đến trải nghiệm lâu dài.\r\nHiển thị hình ảnh chi tiết\r\nĐiện thoại Samsung Galaxy A04 (3GB/32GB) sở hữu tấm nền IPS LCD, độ phân giải HD+ cùng kích thước 6.5 inch mang đến không gian giải trí thoải mái, phù hợp với các nhu cầu giải trí của đại đa số người dùng.', '123344', 'lg-v60-thinq-600x600-1-600x600.jpg', 'samsung-galaxy-flip4-glr-tim-1.jpg', 'iphone14.jpg', NULL),
+(24, 24, 'Điện thoại Samsung Galaxy A05', '55555', '1234', 'Samsung Galaxy A04 một cái tên khá quen của dòng Galaxy A khi sở hữu cho mình một thiết kế đơn giản nhưng rất tinh tế, camera cho ra những bức ảnh sắc nét và một viên pin lớn mang đến trải nghiệm lâu dài. Hiển thị hình ảnh chi tiết Điện thoại Samsung Galaxy A04 (3GB/32GB) sở hữu tấm nền IPS LCD, độ phân giải HD+ cùng kích thước 6.5 inch mang đến không gian giải trí thoải mái, phù hợp với các nhu cầu giải trí của đại đa số người dùng.', '123456', 'xiaomi-12t-glr-xanh-1-1.jpg', 'lg-v60-thinq-600x600-1-600x600.jpg', 'samsung-galaxy-flip4-glr-tim-1.jpg', NULL),
+(25, 27, 'Điện thoại iPhone 12 Pro 128GB', '44444', '11111', 'Samsung Galaxy A04 một cái tên khá quen của dòng Galaxy A khi sở hữu cho mình một thiết kế đơn giản nhưng rất tinh tế, camera cho ra những bức ảnh sắc nét và một viên pin lớn mang đến trải nghiệm lâu dài. Hiển thị hình ảnh chi tiết Điện thoại Samsung Galaxy A04 (3GB/32GB) sở hữu tấm nền IPS LCD, độ phân giải HD+ cùng kích thước 6.5 inch mang đến không gian giải trí thoải mái, phù hợp với các nhu cầu giải trí của đại đa số người dùng.', '12345', 'iphone-11-pro-max-160820-1111380-800x444.jpg', 'iphone14-pro-1.jpg', 'iphone14.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -407,6 +426,8 @@ INSERT INTO `tbl_momo` (`id_momo`, `partner_code`, `order_id`, `amount`, `order_
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `chat_id` int(10) ,
+  `chat_status` varchar(255) COLLATE utf8_bin DEFAULT 'active',
   `user_name` varchar(255) DEFAULT NULL,
   `full_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -420,16 +441,31 @@ CREATE TABLE `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`id`, `user_name`, `full_name`, `email`, `phone`, `address`, `role`, `password`) VALUES
-(22, 'Phi 2', 'Trần Hoàng Phi', 'phithph22381@fpt.edu.vn', '09866663', 'hà nội', 0, 'vip'),
-(24, 'admin', 'admin', 'admin@gmail.com', '988888887', 'TDP Vĩnh Thịnh', 1, 'admin'),
-(25, 'user', 'user', 'user@gmail.com', '8983437', 'ha noi', 0, 'user');
+INSERT INTO `user` (`id`, `user_name`,`chat_id`, `full_name`, `email`, `phone`, `address`, `role`, `password`) VALUES
+(22, 'Phi 2','1011', 'Trần Hoàng Phi', 'phithph22381@fpt.edu.vn', '09866663', 'hà nội', 0, 'vip'),
+(24, 'admin','1012', 'admin', 'admin@gmail.com', '988888887', 'TDP Vĩnh Thịnh', 1, 'admin1'),
+(25, 'user','1013', 'user', 'user@gmail.com', '8983437', 'ha noi', 0, 'user'),
+(30, 'f34f34f43','1014', 'f34f34f4', '4f34f@g.com', '111', 'f34f43f4', 1, 'f43f43'),
+(31, 'dddd', '1015','thanhdo vu', 'dovtdph24172@fpt.edu.vn', '0566730000', 'thai binh', 1, 'dddddd');
 
 -- --------------------------------------------------------
 
 --
 -- Cấu trúc bảng cho bảng `voucher`
 --
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `incoming_msg_id` int COLLATE utf8_bin not NULL,
+  `outgoing_msg_id` int COLLATE utf8_bin not NULL,
+  `msg` text  DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL,
+  `seen` varchar(255) DEFAULT 'no'
+) ;
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 CREATE TABLE `voucher` (
   `id` int(11) NOT NULL,
@@ -528,19 +564,19 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT cho bảng `detail_order`
 --
 ALTER TABLE `detail_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `product_rev`
@@ -570,7 +606,7 @@ ALTER TABLE `tbl_momo`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT cho bảng `voucher`
