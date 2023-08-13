@@ -83,9 +83,9 @@
             <div class="">
                 <a href="index.php?act=productdetail&id= <?php echo $id ?>">
                     <div class="">
-                        <div class="bg-[#F3F3F3]  w-[259px] h-[250px]">
-                            <img src=" <?= $image2 ?> " alt="" 
-                                class="w-[259px] h-[250px] hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
+                        <div class="bg-[#F3F3F3]  w-[259px] h-[259px]">
+                            <img src=" <?= $image2 ?> " alt=""
+                                class="w-[259px] h-[259px] hover:bg-white hover:shadow-lg hover:shadow-cyan-500/50 hover:text-[#4F46E5]">
                         </div>
                         <h3 class="text-gray-600 my-2"> <?= $product_name  ?></h3>
                         <div class="flex items-center">

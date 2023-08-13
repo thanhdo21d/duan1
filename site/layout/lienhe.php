@@ -33,7 +33,6 @@
                             <span class="font-bold">dyuu125@fpt.edu.vn</span>
                         </div>
 
-                        
                         <div class="contact-info-item">
                             <span class="contact-info-title-small">Điện thoại</span><br>
                             <span class="font-bold">0789.970.907 - 0902.970.907</span>

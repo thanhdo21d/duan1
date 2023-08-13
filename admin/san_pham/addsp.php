@@ -30,11 +30,11 @@
 
 
                 <p class="text-[#551AA9] text-[20px] my-4" for="">Tên Sản Phẩm</p>
-                <input type="text" required name="product_name"  class="border w-full px-10 rounded-lg py-2 mt-2">
+                <input type="text" required name="product_name" placeholder="LV ...." class="border w-full px-10 rounded-lg py-2 mt-2">
 
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Giá</p><input required type="text" name="product_price"  class="border w-full px-10 rounded-lg py-2 mt-2">
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Giá</p><input required type="text" name="product_price" placeholder="999$ ...." class="border w-full px-10 rounded-lg py-2 mt-2">
 
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Giảm Giá</p><input required type="text" name="product_price_sale"  class="border w-full px-10 rounded-lg py-2 mt-2">
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Giảm Giá</p><input required type="text" name="product_price_sale" placeholder="899$ ...." class="border w-full px-10 rounded-lg py-2 mt-2">
 
 
                 <br>
@@ -54,7 +54,7 @@
 
 
 
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Origin</p><input required type="text" name="origin"  class="border w-full px-10 rounded-lg py-2 mt-2">
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Origin</p><input required type="text" name="origin" placeholder="899$ ...." class="border w-full px-10 rounded-lg py-2 mt-2">
 
 
 

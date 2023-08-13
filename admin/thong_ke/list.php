@@ -6,8 +6,12 @@
             <tr class="border-2 border-cyan-500/50  text-[#551AA9] ">
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Mã danh mục</th>
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Tên danh mục</th>
-                <th class="border-2 border-cyan-500/50  px-6 py-2">Số lượng đã bán</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Số lượng đơn</th>
                 <th class="border-2 border-cyan-500/50  px-6 py-2">Giá</th>
+
+                <!-- <th class="border-2 border-cyan-500/50  px-6 py-2">Giá cao nhất</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Giá thấp nhất</th>
+                <th class="border-2 border-cyan-500/50  px-6 py-2">Giá trung bình</th> -->
             </tr>
             <?php
             // if ((isset($ds_thong_ke_hh)) && ($ds_thong_ke_hh != [])) {
@@ -121,7 +125,15 @@ var myChart = new Chart(ctx, {
                         $madm=$row['id'];
                         $product_name=$row['product_name'];
                         $product_price=$row['product_price'];
-                        $countB=mysqli_fetch_array(mysqli_query($db_con,"SELECT count(*) FROM detail_order WHERE id_product='{$row['id']}'"))['count(*)'];
+                        //đếm sản phẩm đã bán
+                        // $count=mysqli_fetch_array(mysqli_query($db_con,"SELECT * FROM detail_order WHERE id_product='{$row['id']}'"))['id_order'];
+                        $s1=mysqli_query($db_con,"SELECT * FROM detail_order WHERE id_product='{$row['id']}'");
+                        $countB=0;
+                        while($n=mysqli_fetch_assoc($s1)){
+                            if(mysqli_fetch_assoc(mysqli_query($db_con,"SELECT  * from `order` WHERE code_cart='{$n['id_order']}' and status='3' LIMIT 1")))
+                                $countB+=$n['quanlity'];
+                        }
+                        //
                         
 
                         
