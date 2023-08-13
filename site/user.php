@@ -1,3 +1,33 @@
+<?php
+session_start();
+if(!isset($_SESSION['code']))$_SESSION['code']=rand(100000,999999);
+$sCode=$_SESSION['code'];
+
+if (isset($_POST['confirm'])) {
+    $username = strtolower($_POST['username']);
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = ($_POST['password']);
+    $address = $_POST['address'];
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) echo"<script>alert('Email không hợp lệ')</script>";
+    else if($_POST['code']==$sCode){
+        $chat_id=rand(10000000,999999999);
+        $role = 1;
+        $_SESSION['role'] = $role;
+        $sql_dangky = pdo_execute("INSERT INTO `user`( `chat_id`,`user_name`, `full_name`, `email`, `phone`, `address`, `role`, `password`) VALUES ('$chat_id','$username','$fullname','$email','$phone','$address','$role','$password')");
+        echo '<p style="color:green">Bạn đã đăng ký thành công</p>';
+        $_SESSION['dangky'] = $fullname;
+        $_SESSION['email'] = $email;
+        $_SESSION['id_user'] = search_id();
+        echo"<script>alert('Đăng ký thành công');window.location.href='index.php?act=home'</script>";
+    }
+    else{
+        $_SESSION['code']=rand(100000,999999);
+        echo"<script>alert('Mã xác nhận không đúng , vui lòng kiểm tra email hợp lệ !')</script>";
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +44,7 @@
     <header>
         <div class="flex items-center space-x-4 mx-6 my-4">
             <a href="index.php">
-                <h1 class="font-medium text-2xl font-semibold">ROYAL CENTER</h1>
+                <h1 class="font-medium text-2xl font-semibold">Tech88 Mobile Store</h1>
             </a>
             <SPAN class="text-xl font-thin">|</SPAN>
             <SPAN class="font-thin text-[14px]">
@@ -23,10 +53,10 @@
     </header>
     <div class="MENU border-[1px] border-gray-200 grid grid-cols-3">
 
-        <form class="right bg-[#F6F5F3] col-span-2"  method="post" action="index.php?act=signup">
+        <form class="right bg-[#F6F5F3] col-span-2"  method="post" action="">
            
         <div class="mx-32 my-20">
-        <a  href ="sign_in.php">
+        <a  href ="sign_in.php">d
                <h3 class="font-bold text-2xl">ĐÃ CÓ TÀI KHOẢN ?</h3>
 </a>
                <hr class="mt-5 mb-10">
@@ -38,7 +68,11 @@
                 <div class="bg-[#FFFFFF] my-10 rounded">
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Email *</label><br>
-                        <input type="email" placeholder="name@example.com" name="email" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        <input type="email" id="email" placeholder="name@example.com" name="email" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required  minlength="6">
+                        <button style="border:1px #00bcd4 solid;color:#00bcd4;padding:0px 10px" type="button" onclick="sendCode()">Gửi mã xác minh</button>
+                        <div>
+                            <input type="number" id="code" style="display:none"  placeholder="Nhập mã xác minh" name="code" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required  minlength="6">
+                        </div>
                     </div>
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Tên tài khoản *</label><br>
@@ -46,19 +80,19 @@
                     </div>
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Mật khẩu *</label><br>
-                        <input type="password" placeholder="********" name="password" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        <input type="password" placeholder="********" name="password" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="8">
                     </div>
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Họ và tên *</label><br>
-                        <input type="text" placeholder="Nguyễn Văn A" name="fullname" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        <input type="text" placeholder="Nguyễn Văn A" name="fullname" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="8">
                     </div>
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Địa chỉ nhà *</label><br>
-                        <input type="text" placeholder="Trịnh Văn Bô , Hà Nội Street" name="address" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        <input type="text" placeholder="Trịnh Văn Bô , Hà Nội Street" name="address" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="10">
                     </div>
                     <div class="mx-10 py-10 space-y-4">
                         <label for="">Điện thoại *</label><br>
-                        <input type="text" placeholder="098+ ?? " name="phone" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required>
+                        <input type="text" placeholder="098+ ?? " name="phone" class="py-4 px-4 w-full border-2 rounded border-[#CFCCC8]" required minlength="10">
                     </div>
                 </div>
                 <button class="font-semibold text-xl px-6 py-2 bg-black text-[#FFFFFF]" type="submit" name="confirm">Xác nhận</button>
@@ -87,12 +121,26 @@
      
         </div>
     </div>
+    <script>
+function sendCode(){
+    var email=document.getElementById("email").value
+    if(email==""){
+        alert("Vui lòng nhập email");
+    }
+    else{
+    document.getElementById("code").style.display="block"
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET","https://ketquaday99.com/api/AutoSendEmail.php?email="+email+"&message=Mã xác nhận của bạn là :<b><?=$sCode?></b>&subject=Verification !",true);
+    xhttp.send();   
+    }
+}
+    </script>
     <footer class="mt-10 mx-auto max-w-screen-2xl   py-10">
         <div class="f-on grid grid-cols-5 mx-10 items-center">
             <div class="col-span-2">
                 <div class="flex items-center">
                     <img srcset="../upload/logo.png 2x" alt="" class="w-[80px] mx-4">
-                    <h2 class="text-3xl ">Royal CenTer</h2>
+                    <h2 class="text-3xl ">Tech88 Mobile Store</h2>
                 </div>
                 <p class="mx-8 hover:underline my-6">But I must explain to you how all this mistaken idea of denouncing
                     pleasure and
@@ -100,7 +148,7 @@
                     born and I will give you</p>
                 <div class="mx-8 my-4">
                     <input type="text" class="border-2 py-2 px-20 rounded-lg" required placeholder="Your email">
-                    <button class="border-2 py-2 px-8 rounded-lg">Subscribe</button>
+                    <button class="border-2 py-2 px-8 rounded-lg mt-3 bg-green-400 text-xl font-bold  text-white">Subscribe</button>
                 </div>
             </div>
             <div class="col-span-1 mx-10">

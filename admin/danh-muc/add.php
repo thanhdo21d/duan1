@@ -23,7 +23,7 @@
             <form action="index.php?act=them_dm" method="post" enctype="multipart/form-data" class="">
 
 
-                <p class="text-[#551AA9] text-[20px] my-4" for="">Cate_Name</p><input type="text" required name="categories_name" placeholder="Túi ...." class=" px-10 py-2 rounded-md">
+                <p class="text-[#551AA9] text-[20px] my-4" for="">Cate_Name</p><input type="text" required name="categories_name"  class=" px-10 py-2 rounded-md">
                 <p class="text-[#551AA9] text-[20px] my-4" for="">Image</p>
                 <input required type="file" name="image" class="text-[#551AA9] text-[20px] my-2 ">
 

@@ -619,11 +619,16 @@ body {
                         id="closed">X</button>
                 </div>
                 <?php
+                if(isset($_POST['delete_cart'])){
+                    array_splice($_SESSION['cart'], $_POST['idcart'], 1);
+                }
                     $tong = 0;
                     $i = 0;
                     foreach ($_SESSION['cart'] as $product) {
                         $ttien = $product[3] * $product[4];
                         $tong += $ttien;
+                        //xoá sản phẩm
+                        
                         echo '
                     <div class="my-10">
                         <div class="grid-cols-2 grid items-center my-4 shadow-lg shadow-cyan-500/50 rounded-lg">
@@ -645,11 +650,19 @@ body {
                                     </div>
 
                                     <div class="price my-2">
-                                        $ <span id="price">' . $product[3] . '</span>
+                                        $ <span id="price">' . number_format($product[3], 0, ',', '.'). '</span>
                                     </div>
+                                    
 
                                 </div>
+                                
                             </div>
+                            <form method="post" action="">
+                                <input type="text" hidden value="'.$i.'" name="idcart">
+                                <button class="h-7" style="background:#000;color:#fff;width:352px" name="delete_cart">Xoá</button>
+                            </form>
+                        </div>
+                        
                         </div>
                             ';
                         $i++;
@@ -658,10 +671,10 @@ body {
                 <hr>
             </div>
             <hr width=" mx-auto">
-            <div class="flex justify-between my-10">
+            <div class="flex justify-between my-10 px-5">
                 <h3 class="text-xl">TỔNG CỘNG</h3>
-                <div class="subtotal">
-                    <span>$ <span id="subtotal"><?= $tong; ?></span></span>
+                <div class="subtotal px-5">
+                    <span>$ <span id="subtotal"><?= number_format($tong, 0, ',', '.'); ?></span></span>
                 </div>
             </div>
 
@@ -759,6 +772,12 @@ body {
                  
                     <input type="submit" value="Đơn hàng của tôi" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
                 </form>
+                <form method="post" action="index.php?act=change_pass">
+                    <input type="submit" value="Đổi mật khẩu" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
+                </form>
+                <form method="post" action="index.php?act=livechat">
+                    <input type="submit" value="Chat hỗ trợ" name="" class="hover:bg-[#EAE8E4] my-10 hover:text-black bg-black text-[#FFFFFF] w-full text-center py-4 text-[16px]">
+                </form>
              
                 
                 ';
@@ -807,11 +826,13 @@ body {
                     <a id="opencart">
 
                         <div id="cart" class="cart" data-totalitems="0">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 3 24 20" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 text-right">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 3 24 20" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-right" data-totalitems="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                <?php if(isset($_SESSION['dangky'])){?><span style="position: absolute;margin-top:-35px;z-index:20;color:#fff;border-radius:100%;background:#000;font-weight:bold;line-height:5px" class="ml-9 p-0.5"><?=count($_SESSION['cart'])?></span><?php }?>
                             </svg>
+                        </div>
+                        <div>
+                            
                         </div>
 
                     </a>
@@ -828,8 +849,8 @@ body {
         </div>
         <div class="list-none hidden flex justify-center space-x-8 my-10 " id="tk">
             <form class="w-[300px] h-[35px] border border-gray-400  rounded-md" action="index.php?act=san_pham" method="post">
-                <input type="text" class="pl-2" placeholder="Tìm kiếm sản phẩm" name="kw">
-                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit" name="timkiem">Tìm Kiếm</button>
+                <input type="search" class="pl-2" placeholder="Tìm kiếm sản phẩm" name="kw">
+                <button class="bg-green-500 rounded-md text-white w-[118.5px] p-1 border border-gray-400" type="submit">Tìm Kiếm</button>
 
             </form>
         </div>

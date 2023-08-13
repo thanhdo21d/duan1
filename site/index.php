@@ -1,7 +1,30 @@
+
 <?php
+
 // Khởi tạo session bằng session_start()
 session_start();
 ob_start();
+if (!isset($_SESSION['cart'])) $_SESSION['cart'] = array();
+// if(!isset($_SESSION['dangky']) && isset($_GET['act']))echo "<script>window.location.href='./index.php'</script>";// ko đăng nhập chỉ xem được trang chủ
+// echo "<script>alert('".$_SESSION['id_user']."')</script>";
+if(isset($_SESSION['id_user'])){
+echo'
+<script>
+  function updateChat(){
+    var url = "./api.php?count";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {document.getElementById("noseen").innerHTML="("+data["NoSeenMsg"]+")";})}
+  function openchat(){
+    document.getElementById("lchat").style.display=(document.getElementById("lchat").style.display=="none")?"block":"none"
+  }
+  updateChat();
+  setInterval(updateChat,1000)
+</script>
+  <div style="position:fixed;left:50px;bottom:50px;z-index:1000;padding:20px;background:#2196f3;border-radius:10px" onclick="openchat()"> chat <str id="noseen" style="color:green">()</str></div>
+  <iframe src="../livechat/" id="lchat" frameborder="0" style="width:450px;height:700px;position:fixed;left:150px;margin-top:50px;z-index:1000;display:none"></iframe>;
+';
+}
 
 include "../global.php";
 include "../guest/category.php";
@@ -33,6 +56,9 @@ if (isset($_GET['act'])) {
       } else {
         $iddm = 0;
       }
+      if(!isset($_POST['kw'])){
+        $_POST['kw']="";
+      }
       $ds_san_pham = lay_tat_ca_san_pham($kw, $iddm);
       $tendm = load_ten_dm($iddm);
       $danh_sach_sp_moi = lay_san_pham_theo_trang('id', 9);
@@ -41,9 +67,10 @@ if (isset($_GET['act'])) {
       break;
     case 'signup':
       if (isset($_POST['confirm'])) {
-        $username = $_POST['username'];
+        $username = strtolower($_POST['username']);
         $fullname = $_POST['fullname'];
         $email = $_POST['email'];
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL))header("location: ?act=errorReport&case=3");
         $phone = $_POST['phone'];
         $password = ($_POST['password']);
         $address = $_POST['address'];
@@ -62,19 +89,21 @@ if (isset($_GET['act'])) {
         $user = $_POST['name'];
         $pass = $_POST['password'];
         $check_user = check_user($user, $pass);
+
         if (is_array($check_user)) {
           $_SESSION['dangky'] = $check_user['full_name'];
           $_SESSION['role'] = $check_user['role'];
           $_SESSION['id_user'] = $check_user['id'];
           if ($check_user['role'] == 1) {
-            header('Location: ../admin/index.php');
+            header("location: ?act=errorReport&case=2");
+            // header('Location: ../admin/index.php');
           } else {
-            // $thongbao = "Bạn đã đăng nhập thành công!";
-            header('Location: index.php');
+            header("location: ?act=errorReport&case=2");
           }
         } else {
-          echo 'Sai tên tài khoản hoặc mật khẩu';
+          header("location: ?act=errorReport&case=1");
         }
+
       }
       break;
     case 'signout':
@@ -120,6 +149,8 @@ if (isset($_GET['act'])) {
         $tm = 0;
         // tìm và so sánh sp trong giỏ hàng
         include "cart/viewcart.php";
+        
+        echo "<script>window.location.href='?act=viewcart'</script>";
       }
       break;
     case 'delcart':
@@ -186,7 +217,7 @@ if (isset($_GET['act'])) {
     case 'thanhtoan_COD':
       if (isset($_SESSION['dangky'])) {
         $money = $_GET['tong'];
-        include "thanhtoan/camon.php";
+        include "./thanhtoan/camon.php";
       } else {
         echo '<h1 class=" text-center text-[32px] border border-slate-300 ...">Vui lòng đăng nhập để thanh toán</h1>';
         include "cart/viewcart.php";
@@ -195,6 +226,20 @@ if (isset($_GET['act'])) {
     case 'detail_order':
       include "detail_order.php";
       break;
+    case 'change_pass':
+        include "./components/ChangePass.php";
+        break;
+    case 'errorReport':
+      if($_GET['case']==1)echo "<script>alert('Sai mật khẩu');window.location.href='?'</script>";
+      else if($_GET['case']==2)echo "<script>alert('Đăng nhập thành công');window.location.href='?'</script>";
+      else if($_GET['case']==3)echo "<script>alert('Email không đúng định dạng');window.location.href='user.php'</script>";
+
+
+      break;
+      case 'livechat':
+       
+        echo ' <iframe src="../livechat/" frameborder="0" style="width:100%;height:700px"></iframe>';  
+        break;
     default:
       include "../site/layout/home.php";
       $san_pham = count(lay_tat_ca_san_pham_guest());
@@ -207,3 +252,5 @@ if (isset($_GET['act'])) {
   $san_pham = count(lay_tat_ca_san_pham_guest());
 }
 include "../site/layout/footer.php";
+
+
